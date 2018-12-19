@@ -34,7 +34,6 @@
             this.cmbModalidad = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // cmbJugadores
@@ -91,27 +90,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(267, 76);
+            this.textBox1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.textBox1.Location = new System.Drawing.Point(35, 212);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(279, 146);
             this.textBox1.TabIndex = 5;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(213, 201);
+            this.richTextBox1.Location = new System.Drawing.Point(189, 37);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(218, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(161, 96);
             this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "B I N G O";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(48, 200);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.richTextBox1.Text = "b i n g o\n1 4 3 2 4\n2 4 5 6\n3\n4\n5";
             // 
             // Form1
             // 
@@ -119,7 +112,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(697, 450);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cmbModalidad);
@@ -141,7 +133,6 @@
         private System.Windows.Forms.ComboBox cmbModalidad;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ListView listView1;
     }
 }
 
