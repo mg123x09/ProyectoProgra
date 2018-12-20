@@ -42,7 +42,11 @@ namespace WindowsFormsApp1
         {
             int cantidad = cartones * juga;
             int contador = 0;
-            plantilla= new Cartones[cantidad];
+            plantilla = new Cartones[cantidad];
+            for(int k=0;k< cantidad-1; k++)
+            {
+                plantilla[k] = new Cartones();
+            }
             for (int i = 0; i < juga; i++)
             {
                 for (int j = 0; j < cartones; j++)
@@ -75,11 +79,82 @@ namespace WindowsFormsApp1
             return retorno;
         }
 
+        public string jugar()
+        {
+            string respuesta = "";
+            Random alea = new Random();
+            int num_juego = alea.Next(1, 75);
+            int letra = alea.Next(1, 5);
+            int contador = 0;
+            Boolean ganador = false;
+            string letrafinal="";
 
+            switch (letra)
+            {
+                case 1:
+                    letrafinal = "B";
+                    break;
+                case 2:
+                    letrafinal = "I";
+                    break;
+                case 3:
+                    letrafinal = "N";
+                    break;
+                case 4:
+                    letrafinal = "G";
+                    break;
+                case 5:
+                    letrafinal = "O";
+                    break;
+           
+
+            }
+            
+            foreach (Cartones carton in plantilla){
+
+                for (int i = 0; i < carton.carts.GetLength(1); i++)
+                {
+                    for (int j = 0; j < carton.carts.GetLength(0); j++)
+                    {
+                        if (num_juego.ToString().Equals(carton.carts[i,j]) && i==letra-1)
+                        {
+                            carton.carts[i, j] = "XX";
+                        }
+                        if (carton.carts[i,j].Equals("XX"))
+                        {
+                            contador++;
+                        }
+
+                    }
+                }
+                 if(contador == carton.carts.Length)
+                {
+                    ganador = true;
+                    respuesta = "El ganador es el jugador numero "+carton.player+"con el carton "+carton.ids;
+                }
+            }
+
+            if (ganador)
+            {
+                return respuesta;
+            }
+            else
+            {
+                return letrafinal + num_juego.ToString();
+            }
+
+
+        }
 
         private void cmbModalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            creacion(5, 5, 25, "e");
+            MessageBox.Show(jugar());
         }
     }
 }
