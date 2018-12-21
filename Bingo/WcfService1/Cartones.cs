@@ -13,6 +13,13 @@ namespace WcfService1
         int jugador; 
 
         //Id GET SET
+
+            public Cartones(int cart, int juga, string[,] mat)
+        {
+            idCart = cart;
+            jugador = juga;
+            carton = mat;
+        }
         public int ids
         {
             get { return idCart; }

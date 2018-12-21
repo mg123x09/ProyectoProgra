@@ -43,25 +43,23 @@ namespace WindowsFormsApp1
             int cantidad = cartones * juga;
             int contador = 0;
             plantilla = new Cartones[cantidad];
-            for(int k=0;k< cantidad-1; k++)
-            {
-                plantilla[k] = new Cartones();
-            }
+            
             for (int i = 0; i < juga; i++)
             {
                 for (int j = 0; j < cartones; j++)
                 {
-                    plantilla[contador].ids = j;
-                    plantilla[contador].player = i;
-                    plantilla[contador].carts = llenar(cant_num);
+                    plantilla[contador] = new Cartones(j, i, llenar(cant_num));
+                    
                     contador++;
                     
                 }
             }
         }
-
+        List<string> numerosHis = new List<string>();
+        
         public string[,] llenar(int numeros)
         {
+            //numerosHis.Clear();
             int filas = numeros / 5;
             Random alea = new Random();
             string[,] retorno = new string[5, filas];
@@ -73,7 +71,7 @@ namespace WindowsFormsApp1
                     {
                         retorno[i, j] = "XX";
                     }
-                    retorno[i, j] = alea.Next(1,75).ToString();
+                    retorno[i, j] = alea.Next(1,76).ToString();
                 }
             }
             return retorno;
@@ -83,8 +81,8 @@ namespace WindowsFormsApp1
         {
             string respuesta = "";
             Random alea = new Random();
-            int num_juego = alea.Next(1, 75);
-            int letra = alea.Next(1, 5);
+            int num_juego = alea.Next(1, 76);
+            int letra = alea.Next(1, 6);
             int contador = 0;
             Boolean ganador = false;
             string letrafinal="";
@@ -132,6 +130,10 @@ namespace WindowsFormsApp1
                     ganador = true;
                     respuesta = "El ganador es el jugador numero "+carton.player+"con el carton "+carton.ids;
                 }
+                else
+                {
+                    contador = 0;
+                }
             }
 
             if (ganador)
@@ -140,7 +142,10 @@ namespace WindowsFormsApp1
             }
             else
             {
+                numerosHis.Add(letrafinal + num_juego.ToString());
                 return letrafinal + num_juego.ToString();
+
+                
             }
 
 
@@ -155,6 +160,21 @@ namespace WindowsFormsApp1
         {
             creacion(5, 5, 25, "e");
             MessageBox.Show(jugar());
+        }
+        public string mostrarHis()
+        {
+
+            string resultado = "";
+            foreach(string numero in numerosHis)
+            {
+                resultado += numero + "\n";
+            }
+            return resultado;
+        }
+
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(mostrarHis());
         }
     }
 }
