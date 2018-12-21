@@ -43,20 +43,20 @@ namespace WindowsFormsApp1
             int cantidad = cartones * juga;
             int contador = 0;
             plantilla = new Cartones[cantidad];
-            
+
             for (int i = 0; i < juga; i++)
             {
                 for (int j = 0; j < cartones; j++)
                 {
                     plantilla[contador] = new Cartones(j, i, llenar(cant_num));
-                    
+
                     contador++;
-                    
+
                 }
             }
         }
         List<string> numerosHis = new List<string>();
-        
+
         public string[,] llenar(int numeros)
         {
             //numerosHis.Clear();
@@ -67,11 +67,11 @@ namespace WindowsFormsApp1
             {
                 for (int j = 0; j < filas; j++)
                 {
-                    if (i == 2 && j==2 && filas==5)//centro
+                    if (i == 2 && j == 2 && filas == 5)//centro
                     {
                         retorno[i, j] = "XX";
                     }
-                    retorno[i, j] = alea.Next(1,76).ToString();
+                    retorno[i, j] = alea.Next(1, 76).ToString();
                 }
             }
             return retorno;
@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
             int letra = alea.Next(1, 6);
             int contador = 0;
             Boolean ganador = false;
-            string letrafinal="";
+            string letrafinal = "";
 
             switch (letra)
             {
@@ -104,31 +104,32 @@ namespace WindowsFormsApp1
                 case 5:
                     letrafinal = "O";
                     break;
-           
+
 
             }
-            
-            foreach (Cartones carton in plantilla){
+
+            foreach (Cartones carton in plantilla)
+            {
 
                 for (int i = 0; i < carton.carts.GetLength(1); i++)
                 {
                     for (int j = 0; j < carton.carts.GetLength(0); j++)
                     {
-                        if (num_juego.ToString().Equals(carton.carts[i,j]) && i==letra-1)
+                        if (num_juego.ToString().Equals(carton.carts[i, j]) && i == letra - 1)
                         {
                             carton.carts[i, j] = "XX";
                         }
-                        if (carton.carts[i,j].Equals("XX"))
+                        if (carton.carts[i, j].Equals("XX"))
                         {
                             contador++;
                         }
 
                     }
                 }
-                 if(contador == carton.carts.Length)
+                if (contador == carton.carts.Length)
                 {
                     ganador = true;
-                    respuesta = "El ganador es el jugador numero "+carton.player+"con el carton "+carton.ids;
+                    respuesta = "El ganador es el jugador numero " + carton.player + "con el carton " + carton.ids;
                 }
                 else
                 {
@@ -145,7 +146,7 @@ namespace WindowsFormsApp1
                 numerosHis.Add(letrafinal + num_juego.ToString());
                 return letrafinal + num_juego.ToString();
 
-                
+
             }
 
 
@@ -153,7 +154,7 @@ namespace WindowsFormsApp1
 
         private void cmbModalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -165,7 +166,7 @@ namespace WindowsFormsApp1
         {
 
             string resultado = "";
-            foreach(string numero in numerosHis)
+            foreach (string numero in numerosHis)
             {
                 resultado += numero + "\n";
             }
@@ -176,5 +177,59 @@ namespace WindowsFormsApp1
         {
             MessageBox.Show(mostrarHis());
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
+            col1.Name = "B";
+            DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
+            col2.Name = "I";
+            DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
+            col3.Name = "N";
+            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
+            col4.Name = "G";
+            DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
+            col5.Name = "O";
+            dgvCarton.Columns.AddRange(new DataGridViewColumn[] { col1, col2, col3, col4, col5 });
+
+            dgvCarton.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            foreach (Cartones cart in plantilla)
+            {
+                if (cart.ids == 2 && cart.player == 2)
+                {
+                    for(int i = 0; i < cart.carts.GetLength(1); i++)
+                    {
+                        dgvCarton.Rows.Add(mostrar_cart(2,2,i));
+                    }
+                }
+            }
+
+
+        }
+        public string[] mostrar_cart(int idju, int id_cart, int fila)
+        {
+            Cartones temporal = null;
+            foreach (Cartones cart in plantilla)
+            {
+                if (cart.ids == id_cart && cart.player == idju)
+                {
+                    temporal = cart;
+                }
+            }
+            string[] numeros = new string[5];
+            for (int i = 0; i < 5; i++)
+            {
+                numeros[i] = temporal.carts[i, fila].ToString();
+            }
+            return numeros;
+        }
+
+
     }
 }
+    

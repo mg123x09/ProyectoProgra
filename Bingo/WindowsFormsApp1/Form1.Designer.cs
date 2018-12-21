@@ -32,7 +32,6 @@
             this.Jugadores = new System.Windows.Forms.Label();
             this.Modalidad = new System.Windows.Forms.Label();
             this.cmbModalidad = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbCartxJu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,11 +39,13 @@
             this.cbNumxCart = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbPlayer = new System.Windows.Forms.ComboBox();
+            this.cbCarton = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnTerminar = new System.Windows.Forms.Button();
+            this.dgvCarton = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbJugadores
@@ -57,7 +58,7 @@
             "Jugador 4",
             "Jugador 5"});
             this.cmbJugadores.Location = new System.Drawing.Point(39, 96);
-            this.cmbJugadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbJugadores.Margin = new System.Windows.Forms.Padding(4);
             this.cmbJugadores.Name = "cmbJugadores";
             this.cmbJugadores.Size = new System.Drawing.Size(160, 24);
             this.cmbJugadores.TabIndex = 0;
@@ -94,24 +95,12 @@
             "Letra O",
             "Letra U"});
             this.cmbModalidad.Location = new System.Drawing.Point(608, 96);
-            this.cmbModalidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbModalidad.Margin = new System.Windows.Forms.Padding(4);
             this.cmbModalidad.Name = "cmbModalidad";
             this.cmbModalidad.Size = new System.Drawing.Size(160, 24);
             this.cmbModalidad.TabIndex = 4;
             this.cmbModalidad.Tag = "";
             this.cmbModalidad.SelectedIndexChanged += new System.EventHandler(this.cmbModalidad_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.textBox1.Location = new System.Drawing.Point(259, 166);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(371, 179);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cbCartxJu
             // 
@@ -123,7 +112,7 @@
             "4",
             "5"});
             this.cbCartxJu.Location = new System.Drawing.Point(244, 96);
-            this.cbCartxJu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCartxJu.Margin = new System.Windows.Forms.Padding(4);
             this.cbCartxJu.Name = "cbCartxJu";
             this.cbCartxJu.Size = new System.Drawing.Size(160, 24);
             this.cbCartxJu.TabIndex = 7;
@@ -175,7 +164,7 @@
             "70",
             "75"});
             this.cbNumxCart.Location = new System.Drawing.Point(427, 94);
-            this.cbNumxCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbNumxCart.Margin = new System.Windows.Forms.Padding(4);
             this.cbNumxCart.Name = "cbNumxCart";
             this.cbNumxCart.Size = new System.Drawing.Size(160, 24);
             this.cbNumxCart.TabIndex = 11;
@@ -183,17 +172,18 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(407, 353);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 12;
             this.button1.Text = "Mostrar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(801, 94);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 13;
@@ -201,23 +191,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // cbPlayer
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(667, 190);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 14;
+            this.cbPlayer.FormattingEnabled = true;
+            this.cbPlayer.Location = new System.Drawing.Point(667, 190);
+            this.cbPlayer.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPlayer.Name = "cbPlayer";
+            this.cbPlayer.Size = new System.Drawing.Size(160, 24);
+            this.cbPlayer.TabIndex = 14;
             // 
-            // comboBox2
+            // cbCarton
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(667, 277);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(160, 24);
-            this.comboBox2.TabIndex = 15;
+            this.cbCarton.FormattingEnabled = true;
+            this.cbCarton.Location = new System.Drawing.Point(667, 277);
+            this.cbCarton.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCarton.Name = "cbCarton";
+            this.cbCarton.Size = new System.Drawing.Size(160, 24);
+            this.cbCarton.TabIndex = 15;
             // 
             // label4
             // 
@@ -250,17 +240,28 @@
             this.btnTerminar.UseVisualStyleBackColor = true;
             this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
+            // dgvCarton
+            // 
+            this.dgvCarton.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarton.Location = new System.Drawing.Point(107, 154);
+            this.dgvCarton.Name = "dgvCarton";
+            this.dgvCarton.RowTemplate.Height = 24;
+            this.dgvCarton.Size = new System.Drawing.Size(400, 163);
+            this.dgvCarton.TabIndex = 19;
+            this.dgvCarton.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(929, 416);
+            this.Controls.Add(this.dgvCarton);
             this.Controls.Add(this.btnTerminar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCarton);
+            this.Controls.Add(this.cbPlayer);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbNumxCart);
@@ -268,14 +269,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCartxJu);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cmbModalidad);
             this.Controls.Add(this.Modalidad);
             this.Controls.Add(this.Jugadores);
             this.Controls.Add(this.cmbJugadores);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "BINGO";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +288,6 @@
         private System.Windows.Forms.Label Jugadores;
         private System.Windows.Forms.Label Modalidad;
         private System.Windows.Forms.ComboBox cmbModalidad;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbCartxJu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -295,11 +295,12 @@
         private System.Windows.Forms.ComboBox cbNumxCart;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbPlayer;
+        private System.Windows.Forms.ComboBox cbCarton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTerminar;
+        private System.Windows.Forms.DataGridView dgvCarton;
     }
 }
 
