@@ -1,36 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
+using System.Threading.Tasks;
+using WcfService1;
 
-namespace WcfService1
+namespace WindowsFormsApp1
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
-    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
-    public class Service1 : IService1
+    class logic
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-        //inicio
-        Cartones[] plantilla;
+        public Cartones[] plantilla;
         public void creacion(int juga, int cartones, int cant_num)
         {
             int cantidad = cartones * juga;
@@ -48,7 +27,7 @@ namespace WcfService1
                 }
             }
         }
-        List<string> numerosHis = new List<string>();
+        public List<string> numerosHis = new List<string>();
 
         public string[,] llenar(int numeros)
         {
@@ -109,6 +88,7 @@ namespace WcfService1
                 {
                     for (int j = 0; j < carton.carts.GetLength(0); j++)
                     {
+                        try { 
                         if (num_juego.ToString().Equals(carton.carts[i, j]) && i == letra - 1)
                         {
                             carton.carts[i, j] = "XX";
@@ -117,7 +97,11 @@ namespace WcfService1
                         {
                             contador++;
                         }
+                        }
+                        catch (Exception)
+                        {
 
+                        }
                     }
                 }
                 if (contador == carton.carts.Length && modo.Contains("lleno"))
@@ -182,6 +166,5 @@ namespace WcfService1
             }
             return numeros;
         }
-
     }
 }

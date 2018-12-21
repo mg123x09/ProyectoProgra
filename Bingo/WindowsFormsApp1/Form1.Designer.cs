@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnTerminar = new System.Windows.Forms.Button();
             this.dgvCarton = new System.Windows.Forms.DataGridView();
+            this.btntirar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarton)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +53,11 @@
             // 
             this.cmbJugadores.FormattingEnabled = true;
             this.cmbJugadores.Items.AddRange(new object[] {
-            "Jugador 1",
-            "Jugador 2",
-            "Jugador 3",
-            "Jugador 4",
-            "Jugador 5"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.cmbJugadores.Location = new System.Drawing.Point(39, 96);
             this.cmbJugadores.Margin = new System.Windows.Forms.Padding(4);
             this.cmbJugadores.Name = "cmbJugadores";
@@ -194,6 +195,12 @@
             // cbPlayer
             // 
             this.cbPlayer.FormattingEnabled = true;
+            this.cbPlayer.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.cbPlayer.Location = new System.Drawing.Point(667, 190);
             this.cbPlayer.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlayer.Name = "cbPlayer";
@@ -203,6 +210,12 @@
             // cbCarton
             // 
             this.cbCarton.FormattingEnabled = true;
+            this.cbCarton.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.cbCarton.Location = new System.Drawing.Point(667, 277);
             this.cbCarton.Margin = new System.Windows.Forms.Padding(4);
             this.cbCarton.Name = "cbCarton";
@@ -215,9 +228,9 @@
             this.label4.Location = new System.Drawing.Point(667, 254);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 16;
-            this.label4.Text = "label4";
+            this.label4.Text = "Carton";
             // 
             // label5
             // 
@@ -225,9 +238,9 @@
             this.label5.Location = new System.Drawing.Point(671, 166);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 17;
-            this.label5.Text = "label5";
+            this.label5.Text = "Jugador";
             // 
             // btnTerminar
             // 
@@ -250,12 +263,24 @@
             this.dgvCarton.TabIndex = 19;
             this.dgvCarton.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // btntirar
+            // 
+            this.btntirar.Location = new System.Drawing.Point(514, 289);
+            this.btntirar.Margin = new System.Windows.Forms.Padding(4);
+            this.btntirar.Name = "btntirar";
+            this.btntirar.Size = new System.Drawing.Size(123, 28);
+            this.btntirar.TabIndex = 20;
+            this.btntirar.Text = "Sacar numero";
+            this.btntirar.UseVisualStyleBackColor = true;
+            this.btntirar.Click += new System.EventHandler(this.btntirar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(929, 416);
+            this.Controls.Add(this.btntirar);
             this.Controls.Add(this.dgvCarton);
             this.Controls.Add(this.btnTerminar);
             this.Controls.Add(this.label5);
@@ -301,6 +326,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTerminar;
         private System.Windows.Forms.DataGridView dgvCarton;
+        private System.Windows.Forms.Button btntirar;
     }
 }
 

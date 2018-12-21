@@ -20,6 +20,17 @@ namespace WcfService1
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: agregue aquí sus operaciones de servicio
+        [OperationContract]
+        void creacion(int juga, int cartones, int cant_num);
+        [OperationContract]
+        string[,] llenar(int numeros);
+        [OperationContract]
+        string jugar(string modo);
+        [OperationContract]
+        string mostrarHis();
+        [OperationContract]
+        string[] mostrar_cart(int idju, int id_cart, int fila);
+
     }
 
 
