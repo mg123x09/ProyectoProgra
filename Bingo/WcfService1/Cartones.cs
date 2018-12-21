@@ -27,7 +27,7 @@ namespace WcfService1
 
         }
 
-        //STRING
+        //string
         public string[,] carts
         {
             get { return carton; }
@@ -35,7 +35,7 @@ namespace WcfService1
         }
 
 
-        //JUGADOR
+        //jugador
         public int player 
         {
             get { return jugador; }
